@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     def create
         #render plain: params[:article].inspect
         @article = Article.new(article_params)
+        # hard code user so can save new article (ensures that article has a user)
         @article.user = User.first
         if @article.save 
             flash[:success] = "Article was successfully created"
